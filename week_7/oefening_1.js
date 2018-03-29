@@ -20,21 +20,24 @@ const getJSON = function(url, callback) {
 knop.addEventListener("click",function(event){
     let voornaam = document.getElementById("voornaam").value;
     let achternaam = document.getElementById("achternaam").value;
-})
-
-
-// get json data
-getJSON('http://api.icndb.com/jokes/random?firstName='+ voornaam + '&lastName='+achternaam +'', function(error, data) {
     
-    // show error
-    if(error) {
+    
+    // get json data
+    getJSON('http://api.icndb.com/jokes/random?firstName='+ voornaam + '&lastName='+achternaam +'', function(error, data) {
         
-        // do something here
-
-        return false;
-    }   
-    console.log(data.value.joke)
+        // show error
+        if(error) {
+            
+            // do something here
+            
+            return false;
+        }   
+        console.log(data.value.joke);
+        let godverdomme = document.getElementById("godverdomme")
+        godverdomme.innerHTML = data.value.joke
+        
     });
+})
 
 
 
