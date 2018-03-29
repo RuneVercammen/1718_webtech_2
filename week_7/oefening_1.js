@@ -1,6 +1,5 @@
-// declaratie van de overview
-const parkingOverview = document.getElementById('parking-overview');
 
+let knop = document.getElementById("knop")
 // functie expressie om JSON-request via url uit te voeren
 const getJSON = function(url, callback) {
     var xhr = new XMLHttpRequest();
@@ -16,8 +15,13 @@ const getJSON = function(url, callback) {
     };
     xhr.send();
 };
-let voornaam = window.prompt("geef uw voornaam in")
-let achternaam = window.prompt("geef uw achternaam in")
+//let voornaam = window.prompt("geef uw voornaam in")
+//let achternaam = window.prompt("geef uw achternaam in")
+knop.addEventListener("click",function(event){
+    let voornaam = document.getElementById("voornaam").value;
+    let achternaam = document.getElementById("achternaam").value;
+})
+
 
 // get json data
 getJSON('http://api.icndb.com/jokes/random?firstName='+ voornaam + '&lastName='+achternaam +'', function(error, data) {
@@ -28,23 +32,9 @@ getJSON('http://api.icndb.com/jokes/random?firstName='+ voornaam + '&lastName='+
         // do something here
 
         return false;
-    }
-
-    // loop through all parking places
-    for(let i = 0; i < data.length; i++) {
-
-        // current parking object
-        let parking = data[i];
-
-        // do magic here
-    }
-    console.log(data);
-    console.log(data.value);
-    console.log(data.value.joke);
-    document.write(data.value.joke);
-});
-
-
+    }   
+    console.log(data.value.joke)
+    });
 
 
 
